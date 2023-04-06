@@ -1,44 +1,6 @@
-# Mac dev setup
 
-> A macOS setup guide specific to front-end development.
-
-## Guided Setup
-
-For a guided setup, open up **Terminal.app** and run the following command:
-
-1. Save repo to `~/Downloads` folder:
-   ```sh
-   git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
-   cd ~/Downloads/mac-dev-setup/scripts
-   ```
-2. Run the installer script.
-   ```sh
-   sh install.sh
-   ```
-   **OR** Run the installer scripts individually:
-   ```sh
-   sh defaults.sh
-   sh tools.sh
-   sh casks.sh
-   sh optimizations.sh
-   sh summary.sh
-   ```
-
-🔥 The scripts auto-skip prompts for items already installed. **Recommended:** Rerun as many times as needed.
-
-✨ And thats it! For additional CLI and IDE customizations, refer to the related **Manual Setup** section below.
 
 ## Manual Setup
-
-For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do including CLI and IDE customizations.
-
-1. If you haven’t already, save repo to `~/Downloads` folder:
-   ```sh
-   git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
-   cd ~/Downloads/mac-dev-setup/scripts
-   ```
-2. Continue with setup below.
-
 - [Defaults](#defaults)
 - [Tools](#tools)
 - [Applications](#applications)
@@ -67,18 +29,6 @@ killall Dock
 ```sh
 defaults write com.apple.finder AppleShowAllFiles -boolean true && \
 killall Finder
-```
-
-##### Create `~/Developer` folder:
-
-```sh
-mkdir -p ~/Developer
-```
-
-##### Create `~/Sandbox` folder:
-
-```sh
-mkdir -p ~/Sandbox
 ```
 
 ##### Installing xcode-select (CLI tools):
@@ -137,55 +87,13 @@ brew install git-flow
 brew install zsh
 ```
 
-##### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+##### Install Starship
+
+
+##### Install [node](https://nodejs.org/)
 
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
-
-```sh
-brew install romkatv/powerlevel10k/powerlevel10k && \
-echo '# Theme configuration: PowerLevel10K' >> ~/.zshrc && \
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc && \
-echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc && \
-echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc && \
-echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' >> ~/.zshrc
-```
-
-Restart your CLI for this to take effect, or run:
-
-```sh
-p10k configure
-```
-
-##### Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/):
-
-```sh
-brew install zsh-autosuggestions && \
-echo "# Fish shell-like fast/unobtrusive autosuggestions for Zsh." >> ~/.zshrc && \
-echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
-```
-
-Restart your CLI for this to take effect.
-
-##### Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/):
-
-```sh
-brew install zsh-syntax-highlighting && \
-echo "# Fish shell-like syntax highlighting for Zsh." >> ~/.zshrc && \
-echo "# Warning: Must be last sourced!" >> ~/.zshrc && \
-echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
-```
-
-Restart your CLI for this to take effect.
-Note the `source` command must be **at the end** of `~/.zshrc`.
-
-##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
-
-```sh
-brew install node
+not via Homebrew!!
 ```
 
 ##### Install [n](https://github.com/tj/n/) (Node via n):
@@ -226,23 +134,6 @@ npm install -g serve@latest
 
 ### Applications/Casks
 
-##### Install JetBrains Mono Nerd Font:
-
-```sh
-brew tap homebrew/cask-fonts # You only need to do this once!
-brew install font-jetbrains-mono-nerd-font
-```
-
-##### Install 1Password:
-
-```sh
-brew install --cask 1password
-```
-
-##### Install Brave Browser:
-
-```sh
-brew install --cask brave-browser
 ```
 
 ##### Install DiffMerge:
@@ -253,58 +144,18 @@ If Intel Architecture:
 brew install --cask diffmerge
 ```
 
-##### Install Discord:
-
-```sh
-brew install --cask discord
-```
-
-##### Install Figma:
-
-```sh
-brew install --cask figma
-```
-
-##### Install Google Chrome:
-
-```sh
-brew install --cask google-chrome
-```
-
 ##### Install Insomnia:
 
 ```sh
 brew install --cask insomnia
 ```
 
-##### Install iTerm:
-
-```sh
-brew install --cask iterm2
-```
-
-1. Copy my iTerm settings:
-   ```sh
-   cp ~/Downloads/mac-dev-setup/.zshrc ~/
-   ```
-2. Set the theme by going to:
-   - "Preferences &rarr; Profiles &rarr; Colors &rarr; Color Presets… &rarr; Import…"
-   - Theme location: `~/Downloads/mac-dev-setup/Moonlight.itermcolors`
-3. Set the font by going to:
-   - "Preferences &rarr; Profiles &rarr; Text &rarr; Font"
-   - Font name: "JetBrainsMono Nerd Font Mono"
-4. Restart iTerm and resolve any remaining issues.
+##### Install Warp:
 
 ##### Install Rectangle:
 
 ```sh
 brew install --cask rectangle
-```
-
-##### Install Slack:
-
-```sh
-brew install --cask slack
 ```
 
 ##### Install Sourcetree:
@@ -318,19 +169,6 @@ brew install --cask sourcetree
    - Font name: "JetBrainsMono Nerd Font Mono"
 2. Restart Sourcetree and resolve any remaining issues.
 
-##### Install Spotify:
-
-```sh
-brew install --cask spotify
-```
-
-##### Update Terminal:
-
-1. Set the theme and font by going to:
-   - "Preferences &rarr; Profiles &rarr; Import…"
-   - Theme location: `~/Downloads/mac-dev-setup/Moonlight.terminal`
-   - Font name: "JetBrainsMono Nerd Font Mono"
-2. Restart iTerm and resolve any remaining issues.
 
 ##### Install Visual Studio Code:
 
@@ -373,44 +211,3 @@ brew install --cask visual-studio-code
    ```
 3. Restart Visual Studio Code and resolve any remaining issues.
 
-##### Install Warp:
-
-```sh
-brew install --cask warp
-```
-
-1. Copy the theme:
-   ```sh
-   mkdir -p ~/.warp/themes/ && \
-   cp ~/Downloads/mac-dev-setup/Moonlight.yaml ~/.warp/themes/
-   ```
-2. Set the theme and font by going to:
-   - "Settings &rarr; Appearance &rarr; Themes"
-   - Theme name: "Moonlight"
-   - Font name: "JetBrainsMono Nerd Font Mono"
-
-##### Install Zoom.us:
-
-```sh
-brew install --cask zoom
-```
-
-### Optimizations
-
-##### Re-sort Launchpad applications:
-
-```sh
-defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock
-```
-
-##### Updating [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
-
-```sh
-omz update
-```
-
-##### Optimizing [Homebrew](https://brew.sh/):
-
-```sh
-brew update && brew upgrade && brew doctor && brew cleanup
-```
